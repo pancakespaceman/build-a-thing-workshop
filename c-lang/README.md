@@ -2,7 +2,7 @@
 
 List of project ideas I have for learning C and my tracker for how its going.
 
-1. [x] Iplementing a calculator: You can create a simple calculator that can perform basic arithmetic operations like addition, subtraction, multiplication, and division.
+1. [x] Implementing a calculator: You can create a simple calculator that can perform basic arithmetic operations like addition, subtraction, multiplication, and division.
 
 2. [ ] Creating a file system: You can create a simple file system that allows users to create, delete, and modify files and directories.
 
