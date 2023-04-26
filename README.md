@@ -1,4 +1,3 @@
-# Project Learn
+# Build A Thing Workshop
 
-Project learn is my personal project to build... well... projects. This repo contains
-the different projects I build in different languages to learn the langauge (or framework, system, etc.)
+Generic repo to contain the things I build for practice/fun that I don't want in its own dedicated repo.
