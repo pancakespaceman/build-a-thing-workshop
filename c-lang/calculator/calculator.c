@@ -5,43 +5,40 @@
 #include <string.h>
 #define BUFF_LIMIT 100
 
-int checkUserInput(long num, char *nptr, char *endptr)
-{
+int checkUserInput(long num, char *nptr, char *endptr) {
     // shamelessly taken from stack overflow.
-    if (nptr == endptr)
-    {
-        printf("number : %ld invalid (no digits found, 0 returned)\n", num);
+    if (nptr == endptr) {
+        printf("number : %ld invalid (no digits found, 0 "
+               "returned)\n",
+               num);
         return 1;
-    }
-    else if (errno == ERANGE && num == LONG_MIN)
-    {
+    } else if (errno == ERANGE && num == LONG_MIN) {
         printf("number : %ld invalid (underlow occurred)\n", num);
         return 1;
-    }
-    else if (errno == EINVAL)
-    {
-        printf("number : %ld invalid (base contains supported value)\n", num);
+    } else if (errno == EINVAL) {
+        printf("number : %ld invalid (base contains supported "
+               "value)\n",
+               num);
         return 1;
-    }
-    else if (errno != 0 && num == 0)
-    {
-        printf("number : %ld invalid (unspecified error occurred)\n", num);
+    } else if (errno != 0 && num == 0) {
+        printf("number : %ld invalid (unspecified error "
+               "occurred)\n",
+               num);
         return 1;
-    }
-    else if (errno == 0 && nptr && !*endptr)
-    {
-        printf("number : %ld valid (and represents all characters read)\n", num);
-    }
-    else if (errno == 0 && nptr && *endptr != 0)
-    {
-        printf("number : %ld valid (but additional characters remain)\n", num);
+    } else if (errno == 0 && nptr && !*endptr) {
+        printf("number : %ld valid (and represents all "
+               "characters read)\n",
+               num);
+    } else if (errno == 0 && nptr && *endptr != 0) {
+        printf("number : %ld valid (but additional characters "
+               "remain)\n",
+               num);
     }
 
     return 0;
 }
 
-int main()
-{
+int main() {
     char aPtr[BUFF_LIMIT], bPtr[BUFF_LIMIT], optPtr[BUFF_LIMIT];
     char *aEndPtr = NULL, *bEndPtr = NULL, *optEndPtr = NULL;
     long a, b;
@@ -58,8 +55,7 @@ int main()
     checkResult = checkUserInput(a, aPtr, aEndPtr);
 
     // if the number is not a valid int, then exit
-    if (checkResult == 1)
-    {
+    if (checkResult == 1) {
         return 1;
     }
 
@@ -74,8 +70,7 @@ int main()
     checkResult = checkUserInput(b, bPtr, bEndPtr);
 
     // if the number is not a valid int, then exit
-    if (checkResult == 1)
-    {
+    if (checkResult == 1) {
         return 1;
     }
 
@@ -95,19 +90,15 @@ int main()
 
     // if the number is not a valid int, then exit
     // if valid, check if a valid option for an operand
-    if (checkResult == 1)
-    {
+    if (checkResult == 1) {
         return 1;
-    }
-    else if (opt < 1 || opt > 4)
-    {
+    } else if (opt < 1 || opt > 4) {
         printf("Not a valid opt.");
         return 2;
     }
 
     // choose math operator based on operand and print out the solution
-    switch (opt)
-    {
+    switch (opt) {
     case 1:
         printf("The result is: %ld", a + b);
         break;
@@ -118,8 +109,7 @@ int main()
         printf("The result is: %ld", a * b);
         break;
     case 4:
-        if (b == 0)
-        {
+        if (b == 0) {
             printf("Cannot divide by zero.\n");
             break;
         }
